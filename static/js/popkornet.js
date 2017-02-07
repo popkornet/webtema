@@ -53,11 +53,14 @@ simpleCart({
       { attr: "quantity" , label: "Antall" } ,
       { view: "increment" , label: false , text: "<span class='fa fa-fw fa-plus'></span>" } ,
       { attr: "total" , label: "Subtotal", view: 'currency' } ,
-      { view: "remove" , text: "<span class='fa fa-fw fa-close'></span>" , label: false }
+      { view: "remove" , text: "<span class='fa fa-fw fa-close text-danger'></span>" , label: false }
   ],
   currency: "NOK",
   cartStyle: "table",
   cartClass: "table table-responsive table-condensed table-inverse",
-  shippingQuantityRate: 57
+  shippingQuantityRate: 57,
+  update: function() {
+      $(".portfolio-note").text("Gå til kontaktformen for å sende bestillingen.")
+    },
 });
 

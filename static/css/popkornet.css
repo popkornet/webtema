@@ -521,6 +521,7 @@ footer .footer-below {
 #contact table {
   color: #555;
 }
+
 #contact table a {
   text-decoration: none;
 }
@@ -534,8 +535,15 @@ footer .footer-below {
   text-align: center;
 }
 
+#contact .item-remove,
 #contact .item-decrement,
 #contact .item-increment {
   width: 12px;
 }
 
+#contact .sc-total {
+  color: #555;
+  border: 1px solid #888;
+  border-width: 2px 0;
+  text-align: right;
+}
