@@ -78,7 +78,7 @@
         {% if articles %}
         	{% for article in articles_page.object_list %}         	
     
-	        <div class="col-sm-4 portfolio-item">
+	        <div class="col-sm-4 text-center portfolio-item simpleCart_shelfItem">
 	        	    <a href="#portfolioModal{{loop.index}}" class="portfolio-link" data-toggle="modal">
 	        	        <div class="caption">
 	        	            <div class="caption-content">
@@ -87,6 +87,9 @@
 	        	        </div>
 	        	        <img src="{{ SITEURL }}/images/portfolio/{{article.image}}" class="img-responsive" alt="">
 	        	    </a>
+								<a class="item_add btn btn-sm btn-outline" href="javascript:;"> 
+									Bestill <span class="item_name"> {{ article.title }}</span> | <span class="item_price">{{ article.price }}</span>
+								</a>
 	        	</div>
 	        {% endfor %}
         {% endif %}
@@ -178,11 +181,11 @@
 			                        <img src="{{ SITEURL }}/images/portfolio/{{article.image}}" class="img-responsive img-centered" alt="">
 			                        <p>{{article.content}}</p>
 			                        <ul class="list-inline item-details">
+			                            <!-- 
 			                            <li>Kunde:
 			                                <strong><a href="{{article.client_link}}">{{article.client}}</a>
 			                                </strong>
 			                            </li>
-			                            <!-- 
 <li>Date:
 			                                <strong><a href="http://startbootstrap.com">{{article.date}}</a>
 			                                </strong>
