@@ -235,6 +235,11 @@ section.success .mugshot img {
   border-radius: 50%;
 }
 
+section.success a {
+  color: #fff;
+  text-decoration: underline;
+}
+
 @media(max-width:767px) {
     section {
         padding: 75px 0;

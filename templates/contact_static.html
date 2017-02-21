@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				<h2>Bestill bøker</h2>
+				<h2>Vi lytter!</h2>
 				<hr class="star-primary">
 			</div>
 		</div>
@@ -12,35 +12,35 @@
 				<form  action="{{ FORMSPREEURL }}" method="POST" name="sentMessage" id="contactForm" novalidate>
 					<div class="row control-group">
 						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<label>Navn</label>
-							<input type="text" name="name" class="form-control" placeholder="Navn" id="name" required data-validation-required-message="Legg in navnet ditt her.">
+							<label>Kort om ideen din</label>
+							<textarea rows="5" name="message" class="form-control" placeholder="Kort om ideen din" id="message" required data-validation-required-message="Ikke glem å fortelle oss litt om ideen din."></textarea>
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 					<div class="row control-group">
 						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<label>Telefonnummer</label>
-							<input type="tel" name="phoneno" class="form-control" placeholder="Telefonnummer" id="phone" required data-validation-required-message="Legg inn telefonnummeret ditt her.">
+							<label>Navn</label>
+							<input type="text" name="name" class="form-control" placeholder="Navnet ditt" id="name" required data-validation-required-message="Legg in navnet ditt her.">
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 					<div class="row control-group">
 						<div class="form-group col-xs-12 floating-label-form-group controls">
 							<label>E-postadresse</label>
-							<input type="email" name="_replyto" class="form-control" placeholder="E-postadresse" id="email" required data-validation-required-message="Vi må ha e-postadressen din for å kunne bekrefte bestillingen.">
+							<input type="email" name="_replyto" class="form-control" placeholder="E-postadressen din" id="email" required data-validation-required-message="Legg inn e-postadressen din her.">
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+					<div class="row control-group">
+						<div class="form-group col-xs-12 floating-label-form-group controls">
+							<label>Telefonnummer</label>
+							<input type="tel" name="phoneno" class="form-control" placeholder="Telefonnummeret ditt" id="phone" required data-validation-required-message="Legg inn telefonnummeret ditt her.">
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 					<div>
 						<input type="hidden"  name="_subject" value="Ny beskjed fra Popkornet.no!">
 						<input type="text" name="_gotcha" style="display:none" />
-					</div>
-					<div class="row control-group">
-						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<label>Forespørsel</label>
-							<textarea rows="5" name="message" class="form-control" placeholder="Hva kan vi hjelpe deg med?" id="message" required data-validation-required-message="Ikke glem å si hva vi kan gjøre for deg."></textarea>
-							<p class="help-block text-danger"></p>
-						</div>
 					</div>
 					<br>
 					<div id="success"></div>
