@@ -58,9 +58,6 @@ simpleCart({
   currency: "NOK",
   cartStyle: "table",
   cartClass: "table table-responsive table-condensed table-inverse",
-  shippingQuantityRate: 57,
-  update: function() {
-      $(".portfolio-note").text("Gå til kontaktformen for å sende bestillingen.")
-    },
+  shippingQuantityRate: 40,
 });
 
