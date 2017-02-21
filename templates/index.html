@@ -73,11 +73,16 @@
                 <hr class="star-primary">
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+              <p>
+                Popkornet har så langt gitt ut to bøker. Det er ikke mange, men med tanke på at vi startet høsten 2016 er det ikke akkurat pysete heller. Bok nummer tre er for øvrig under arbeid, og flere ligger på lur.
+              </p>
+          </div>
+        </div>
         <div class="row">
         {% if articles %}
         	{% for article in articles_page.object_list %}         	
-    
 	        <div class="col-sm-4 portfolio-item">
 	        	    <a href="#portfolioModal{{loop.index}}" class="portfolio-link" data-toggle="modal">
 	        	        <div class="caption">
@@ -90,7 +95,6 @@
 	        	</div>
 	        {% endfor %}
         {% endif %}
-            
         </div>
     </div>
 </section>
