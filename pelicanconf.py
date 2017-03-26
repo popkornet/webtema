@@ -36,7 +36,7 @@ FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 
-DIRECT_TEMPLATES = ['index']
+DIRECT_TEMPLATES = ['index', 'shop']
 
 # Top Menu Links
 NAVLINKS = (
