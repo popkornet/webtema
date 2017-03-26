@@ -26,9 +26,9 @@
             	<li class="hidden">
                     <a href="{{link}}"></a>
                 </li>
-            	{% elif link == '#shop' %}
+            	{% elif link == 'shop' %}
                 <li class="">
-                    <a href="/shop">{{title}}</a>
+                  <a href="/shop"><i class="fa fa-shopping-cart"></i> {{title}}</a>
                 </li>
               {% else %}
                 <li class="page-scroll">
@@ -79,12 +79,9 @@
                   <div class="container">
                       <!-- Brand and toggle get grouped for better mobile display -->
                       <div class="navbar-header page-scroll">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-{{loop.index}}">
-                              <span class="sr-only">Toggle navigation</span>
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>
-                          </button>
+                        <a data-dismiss="modal" class="navbar-toggle">
+                          <i class="fa fa-arrow-circle-o-left"></i>
+                        </a>
                           <a id="focusme" class="navbar-brand" href="/">{{SITENAME}}</a>
                       </div>
 

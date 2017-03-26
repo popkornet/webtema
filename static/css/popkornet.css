@@ -209,6 +209,9 @@ header hr.star-primary::after {
     border: 0;
 }
 
+.navbar-default .navbar-toggle {
+  color: #fff;
+}
 section {
     padding: 100px 0;
 }
