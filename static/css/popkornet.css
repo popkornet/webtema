@@ -564,3 +564,7 @@ footer .footer-below {
   padding: 20px;
 
 }
+
+#contact p.help-block ul{
+  list-style: none;
+}

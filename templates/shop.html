@@ -117,24 +117,24 @@
 {% block jscript %}
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/simpleCartPopkornet.js"></script>
 <script language="javascript">
-    simpleCart({
-      checkout: {
-        type: "Custom"
-      },
-      cartColumns: [
-          { attr: "name" , label: "Tittel" } ,
-          { attr: "price" , label: "Pris", view: 'currency' } ,
-          { view: "decrement" , label: false , text: "<span class='fa fa-fw fa-minus'></span>" } ,
-          { attr: "quantity" , label: "Antall" } ,
-          { view: "increment" , label: false , text: "<span class='fa fa-fw fa-plus'></span>" } ,
-          { attr: "total" , label: "Subtotal", view: 'currency' } ,
-          { view: "remove" , text: "<span class='fa fa-fw fa-close text-danger'></span>" , label: false }
-      ],
-      currency: "NOK",
-      cartStyle: "table",
-      cartClass: "table table-responsive table-condensed table-inverse",
-      shippingQuantityRate: 40,
-    });
+simpleCart({
+  checkout: {
+    type: "Custom"
+  },
+  cartColumns: [
+      { attr: "name" , label: "Tittel" } ,
+      { attr: "price" , label: "Pris", view: 'currency' } ,
+      { view: "decrement" , label: false , text: "<span class='fa fa-fw fa-minus'></span>" } ,
+      { attr: "quantity" , label: "Antall" } ,
+      { view: "increment" , label: false , text: "<span class='fa fa-fw fa-plus'></span>" } ,
+      { attr: "total" , label: "Subtotal", view: 'currency' } ,
+      { view: "remove" , text: "<span class='fa fa-fw fa-close text-danger'></span>" , label: false }
+  ],
+  currency: "NOK",
+  cartStyle: "table",
+  cartClass: "table table-responsive table-condensed table-inverse",
+  shippingQuantityRate: 40,
+});
 
 $(function() {
     $("input,textarea").jqBootstrapValidation({
@@ -149,11 +149,23 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             
+            if ($(".simpleCart_items .table tr").length <= 1) {
+								$('#success').html("<div class='alert alert-danger'>");
+								$('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+										.append("</button>");
+								$('#success > .alert-danger').append("<strong>Beklager, men det kan se ut som bestillingen er tom. Hvis dette ikke stemmer, ring Svein på +47 901 69160.");
+								$('#success > .alert-danger').append('</div>');
+              return false;
+            }
+              
             var bookOrder = $(".simpleCart_items .table tr").map(function(i, val) {
                 return $(val).children("td, th").map(function() {
                     return $(this).text().trim();
                 }).get().join("\t");
-            }).get().join("\n");
+            }).get()
+            
+            bookOrder.push($(".sc-total").text())
+            bookOrder = bookOrder.join("\n");
 
             $form.find(".bokbestilling").val(bookOrder);
 
@@ -179,7 +191,7 @@ $(function() {
 										.append('</div>');
 
 								//clear all fields
-								$('#orderForm').trigger("reset");
+								$form.trigger("reset");
                 simpleCart.empty();
 
 							},
