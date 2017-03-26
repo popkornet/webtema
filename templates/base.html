@@ -36,7 +36,10 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script
+			  src="https://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous"></script>
 </head>
 
 <body id="page-top" class="index">
@@ -68,6 +71,8 @@
 
 {% include 'scripts.html'%}
 
+{% block jscript %}	
+{% endblock %}
 </body>
 
 </html>
