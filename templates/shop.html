@@ -104,9 +104,11 @@
 			                            </li-->
 			                        </ul>
 			                        <a class="btn btn-outline" data-dismiss="modal"><i class="fa fa-times"></i> Lukk</a>
+                              {% if article.price %}
                               <a class="item_add btn btn-outline" data-dismiss="modal" href="javascript:;"> 
                                 <i class="fa fa-shopping-cart"></i> Kjøp <span class="item_name"> {{ article.title }}</span> | <span class="item_price">{{ article.price }},-</span>
                               </a>
+                              {% endif %}
 			                    </div>
 			                </div>
 			            </div>

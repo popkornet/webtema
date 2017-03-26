@@ -22,9 +22,12 @@
 	        	        </div>
 	        	        <img src="{{ SITEURL }}/images/portfolio/{{article.image}}" class="img-responsive" alt="">
 	        	    </a>
+                {% if article.price %}
 								<a class="item_add btn btn-sm btn-outline" href="javascript:;"> 
 									<i class="fa fa-shopping-cart"></i> Kjøp <span class="item_name"> {{ article.title }}</span> | <span class="item_price">{{ article.price }},-</span>
 								</a>
+                {% endif %}
+
 	        	</div>
 	        {% endfor %}
         {% endif %}
