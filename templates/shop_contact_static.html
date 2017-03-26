@@ -9,7 +9,7 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2">
-				<form  action="{{ FORMSPREEURL }}" method="POST" name="sentMessage" id="contactForm" novalidate>
+				<form  action="{{ FORMSPREEURL_SHOP }}" method="POST" name="sentMessage" id="contactForm" novalidate>
 					<div class="row control-group">
 						<div class="form-group col-xs-12 floating-label-form-group controls">
 							<label>Navn</label>
@@ -30,8 +30,15 @@
 					</div>
 					<div class="row control-group">
 						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<label>Forespørsel</label>
-							<textarea rows="5" name="message" class="form-control" placeholder="Hva kan vi hjelpe deg med?" id="message"></textarea>
+							<label>Fakturaadresse</label>
+							<textarea rows="3" name="message" class="form-control" placeholder="Fakturaadresse" id="message" data-validation-required-message="Legg inn adressen din her."></textarea>
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+					<div class="row control-group">
+						<div class="form-group col-xs-12 floating-label-form-group controls">
+							<label>Leveringsadresse</label>
+							<textarea rows="3" name="message" class="form-control" placeholder="Leveringsadresse" id="message"></textarea>
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>

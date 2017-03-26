@@ -5,8 +5,7 @@
 {% endblock %}
 
 {% block nav %}
-
-<nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+<nav class="navbar navbar-default">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -16,14 +15,21 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a id="focusme" class="navbar-brand" href="/#page-top">{{SITENAME}}</a>
+            <a id="focusme" class="navbar-brand" href="/">{{SITENAME}}</a>
         </div>
 
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                  <a href="/">Til forsiden</a>
+              </li>
+            </ul>
+        </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
 </nav>
-	
 {% endblock %}
 
 {% block about %}
@@ -33,49 +39,8 @@
 {% endblock %}
 
 {% block grid %}
-
-<!-- Portfolio Grid Section -->
-<section id="portfolio">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2>{{PORTFOLIO}}</h2>
-                <hr class="star-primary">
-            </div>
-        </div>
-
-        <div class="row">
-        {% if articles %}
-        	{% for article in articles_page.object_list %}         	
-    
-	        <div class="col-sm-4 text-center portfolio-item simpleCart_shelfItem">
-	        	    <a href="#portfolioModal{{loop.index}}" class="portfolio-link" data-toggle="modal">
-	        	        <div class="caption">
-	        	            <div class="caption-content">
-	        	                <i class="fa fa-search-plus fa-3x"></i>
-	        	            </div>
-	        	        </div>
-	        	        <img src="{{ SITEURL }}/images/portfolio/{{article.image}}" class="img-responsive" alt="">
-	        	    </a>
-								<a href="/shop" class="item_add btn btn-sm btn-outline" href="javascript:;"> 
-									Bestill <span class="item_name"> {{ article.title }}</span> | <span class="item_price">{{ article.price }}</span>
-								</a>
-	        	</div>
-	        {% endfor %}
-        {% endif %}
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="text-note portfolio-note">
-            </div>
-        </div>
-        </div>
-    </div>
-</section>
-
-	
+{% include 'shop_portfolio.html' %}
 {% endblock %}
-
-
 
 {% block contact %}
 {% include 'shop_contact_static.html' %}
@@ -86,16 +51,35 @@
     	{% for article in articles_page.object_list %}
 			<div class="portfolio-modal modal fade" id="portfolioModal{{loop.index}}" tabindex="-1" role="dialog" aria-hidden="true">
 			    <div class="modal-content">
-			        <div class="close-modal" data-dismiss="modal">
-			            <div class="lr">
-			                <div class="rl">
-			                </div>
-			            </div>
-			        </div>
+              <nav class="navbar navbar-default">
+                  <div class="container">
+                      <!-- Brand and toggle get grouped for better mobile display -->
+                      <div class="navbar-header page-scroll">
+                          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                              <span class="sr-only">Toggle navigation</span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                          </button>
+                          <a id="focusme" class="navbar-brand" href="/">{{SITENAME}}</a>
+                      </div>
+
+                      <!-- Collect the nav links, forms, and other content for toggling -->
+                      <div >
+                          <ul class="nav navbar-nav navbar-right">
+                            <li>
+                              <a data-dismiss="modal">Tilbake</a>
+                            </li>
+                          </ul>
+                      </div>
+                      <!-- /.navbar-collapse -->
+                  </div>
+                  <!-- /.container-fluid -->
+              </nav>
 			        <div class="container">
 			            <div class="row">
 			                <div class="col-lg-8 col-lg-offset-2">
-			                    <div class="modal-body">
+			                    <div class="modal-body simpleCart_shelfItem">
 			                        <h2>{{article.title}}</h2>
 			                        <hr class="star-primary">
 			                        <img src="{{ SITEURL }}/images/portfolio/{{article.image}}" class="img-responsive img-centered" alt="">
@@ -115,7 +99,10 @@
 			                                </strong>
 			                            </li-->
 			                        </ul>
-			                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Lukk</button>
+			                        <a class="btn btn-outline" data-dismiss="modal"><i class="fa fa-times"></i> Lukk</a>
+                              <a class="item_add btn btn-outline" data-dismiss="modal" href="javascript:;"> 
+                                <i class="fa fa-shopping-cart"></i> Kjøp <span class="item_name"> {{ article.title }}</span> | <span class="item_price">{{ article.price }},-</span>
+                              </a>
 			                    </div>
 			                </div>
 			            </div>
@@ -124,8 +111,26 @@
 			</div>
 		{% endfor %}
 	{% endif %}
+  <script>
+    simpleCart({
+      checkout: {
+        type: "Custom"
+      },
+      cartColumns: [
+          { attr: "name" , label: "Tittel" } ,
+          { attr: "price" , label: "Pris", view: 'currency' } ,
+          { view: "decrement" , label: false , text: "<span class='fa fa-fw fa-minus'></span>" } ,
+          { attr: "quantity" , label: "Antall" } ,
+          { view: "increment" , label: false , text: "<span class='fa fa-fw fa-plus'></span>" } ,
+          { attr: "total" , label: "Subtotal", view: 'currency' } ,
+          { view: "remove" , text: "<span class='fa fa-fw fa-close text-danger'></span>" , label: false }
+      ],
+      currency: "NOK",
+      cartStyle: "table",
+      cartClass: "table table-responsive table-condensed table-inverse",
+      shippingQuantityRate: 40,
+    });
+  </script>
 
 	<!-- Portfolio Modals -->
-	
-	
 {% endblock %}

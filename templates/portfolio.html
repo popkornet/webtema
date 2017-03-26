@@ -1,0 +1,38 @@
+
+<!-- Portfolio Grid Section -->
+<section id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>{{PORTFOLIO}}</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+
+        <div class="row">
+        {% if articles %}
+        	{% for article in articles_page.object_list %}         	
+    
+	        <div class="col-sm-4 text-center portfolio-item simpleCart_shelfItem">
+	        	    <a href="#portfolioModal{{loop.index}}" class="portfolio-link" data-toggle="modal">
+	        	        <div class="caption">
+	        	            <div class="caption-content">
+	        	                <i class="fa fa-search-plus fa-3x"></i>
+	        	            </div>
+	        	        </div>
+	        	        <img src="{{ SITEURL }}/images/portfolio/{{article.image}}" class="img-responsive" alt="">
+	        	    </a>
+	        	</div>
+	        {% endfor %}
+        {% endif %}
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+								<a class="btn btn-sm btn-outline" href="/shop" target="blank"> 
+									Kjøp bøkene i butikken
+								</a>
+            </div>
+        </div>
+    </div>
+</section>
+
