@@ -19,7 +19,7 @@ $(function() {
 							beforeSend: function() {
 								$('#success').html("<div class='alert alert-info'>");
 								$('#success > .alert-info')
-										.append("<strong>Sender beskjed…</strong>");
+										.append("<strong>Sender mail…</strong>");
 								$('#success > .alert-info')
 										.append('</div>');
 							},
@@ -28,18 +28,20 @@ $(function() {
 								$('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
 										.append("</button>");
 								$('#success > .alert-success')
-										.append("<strong>Beskjeden er sendt!</strong>");
+										.append("<strong>Mailen er sendt!</strong>");
 								$('#success > .alert-success')
 										.append('</div>');
 
 								//clear all fields
 								$('#contactForm').trigger("reset");
+                simpleCart.empty();
+
 							},
 							error: function(err) {
 								$('#success').html("<div class='alert alert-danger'>");
 								$('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
 										.append("</button>");
-								$('#success > .alert-danger').append("<strong>Beklager, " + firstName + ", men det ser ut til at mailen ikke kom frem. Prøv igjen senere, eller ring på 99999999.");
+								$('#success > .alert-danger').append("<strong>Beklager, " + firstName + ", men det ser ut til at mailen ikke kom frem. Prøv igjen senere, eller ring på +47 901 69160.");
 								$('#success > .alert-danger').append('</div>');
 							}
 						});
