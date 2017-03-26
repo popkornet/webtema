@@ -21,6 +21,7 @@ a,
 a:hover,
 a:focus,
 a.focus {
+  cursor: pointer;
     outline: 0;
     color: #666;
 },
