@@ -5,8 +5,7 @@
 {% endblock %}
 
 {% block nav %}
-
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-shrinkable navbar-default navbar-fixed-top">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -39,7 +38,6 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
-	
 {% endblock %}
 
 {% block header %}
@@ -83,7 +81,7 @@
         <div class="row">
         {% if articles %}
         	{% for article in articles_page.object_list %}         	
-	        <div class="col-sm-4 portfolio-item">
+	        <div class="col-sm-4 text-center portfolio-item">
 	        	    <a href="#portfolioModal{{loop.index}}" class="portfolio-link" data-toggle="modal">
 	        	        <div class="caption">
 	        	            <div class="caption-content">
@@ -92,17 +90,16 @@
 	        	        </div>
 	        	        <img src="{{ SITEURL }}/images/portfolio/{{article.image}}" class="img-responsive" alt="">
 	        	    </a>
+								<a href="/shop" class="item_add btn btn-sm btn-outline" href="javascript:;"> 
+									Kjøp <span class="item_name"> {{ article.title }}</span> | <span class="item_price">{{ article.price }},-</span>
+								</a>
 	        	</div>
 	        {% endfor %}
         {% endif %}
         </div>
     </div>
 </section>
-
-	
 {% endblock %}
-
-
 
 {% block contact %}
 {% include 'contact_static.html' %}
@@ -160,8 +157,6 @@
 	</section>
 {% endblock %}	
 
-
-
 {% block modals %}
 	{% if articles %}
     	{% for article in articles_page.object_list %}
@@ -186,15 +181,6 @@
 			                                <strong><a href="{{article.client_link}}">{{article.client}}</a>
 			                                </strong>
 			                            </li>
-			                            <!-- 
-<li>Date:
-			                                <strong><a href="http://startbootstrap.com">{{article.date}}</a>
-			                                </strong>
-			                            </li>
-			                            <li>Service:
-			                                <strong><a href="http://startbootstrap.com">{{article.service}}</a>
-			                                </strong>
-			                            </li-->
 			                        </ul>
 			                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Lukk</button>
 			                    </div>
@@ -205,8 +191,5 @@
 			</div>
 		{% endfor %}
 	{% endif %}
-
 	<!-- Portfolio Modals -->
-	
-	
 {% endblock %}
