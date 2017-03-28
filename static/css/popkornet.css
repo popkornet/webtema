@@ -255,6 +255,7 @@ section.success a {
     }
 }
 
+#contact .btn-outline,
 .modal .btn-outline,
 #portfolio .btn-outline {
     margin-top: 15px;
@@ -264,6 +265,7 @@ section.success a {
     transition: all .3s ease-in-out;
 }
 
+#contact .btn-outline:hover,
 .modal .btn-outline:hover,
 #portfolio .btn-outline:hover {
     border: solid 2px #ff99c8;
