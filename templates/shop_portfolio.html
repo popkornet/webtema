@@ -13,7 +13,7 @@
         {% if articles %}
         	{% for article in articles_page.object_list %}         	
     
-	        <div class="col-sm-4 text-center portfolio-item simpleCart_shelfItem">
+	        <div class="col-sm-3 text-center portfolio-item simpleCart_shelfItem">
 	        	    <a href="#portfolioModal{{loop.index}}" class="portfolio-link" data-toggle="modal">
 	        	        <div class="caption">
 	        	            <div class="caption-content">
@@ -24,20 +24,19 @@
 	        	    </a>
                 {% if article.price %}
 								<a class="item_add btn btn-sm btn-outline" href="javascript:;"> 
-									<i class="fa fa-shopping-cart"></i> Kjøp <span class="item_name"> {{ article.title }}</span> | <span class="item_price">{{ article.price }},-</span>
+									<i class="fa fa-shopping-cart"></i><span class="item_name"> {{ article.title }}</span> | <span class="item_price">{{ article.price }},-</span>
 								</a>
                 {% endif %}
-
-	        	</div>
-	        {% endfor %}
+          </div>
+        {% endfor %}
         {% endif %}
+        </div>
         <div class="row">
             <div class="col-lg-12 text-center page-scroll">
 								<a href="#contact" class="btn btn-sm btn-outline" href="javascript:;"> 
                   <i class="fa fa-arrow-down"></i> Gå til bestillingsskjema</span>
 								</a>
             </div>
-        </div>
         </div>
     </div>
 </section>

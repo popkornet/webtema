@@ -139,7 +139,7 @@ simpleCart({
   currency: "NOK",
   cartStyle: "table",
   cartClass: "table table-responsive table-condensed table-inverse",
-  shippingQuantityRate: 85,
+  shippingFlatRate: 50,
 });
 
 $(function() {
@@ -199,7 +199,6 @@ $(function() {
 								//clear all fields
 								$form.trigger("reset");
                 simpleCart.empty();
-
 							},
 							error: function(err) {
 								$('#success').html("<div class='alert alert-danger'>");

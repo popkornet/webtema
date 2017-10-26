@@ -216,10 +216,16 @@ section {
     padding: 100px 0;
 }
 
+section h3,
 section h2 {
   color: #454851;
     margin: 0;
     font-size: 3em;
+}
+
+section h3 {
+    font-size: 2em;
+
 }
 
 section.success {
@@ -541,6 +547,14 @@ footer .footer-below {
 
 #contact table {
   color: #777;
+}
+
+#contact .shop-sub-header {
+  padding: 1em 0 1em;
+
+}
+#contact .vipps {
+  color: #8ac8a4
 }
 
 #contact table a {
